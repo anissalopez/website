@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Ultra } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
+import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
+import localFont from '@next/font/local';
+export const ultra = Ultra({ subsets: ["latin"],
+  weight: '400',
+ });
 
-const inter = Inter({ subsets: ["latin"] });
+ export const myFont = localFont({src: './dream.ttf'})
+
+const roboto = Roboto({ subsets: ["latin"],
+      weight:'400'
+ });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,8 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className='bg-brown text-white'>
+      <body className={myFont.className}>{children}</body>
+      <PrismicPreview repositoryName={repositoryName} />
     </html>
   );
 }
