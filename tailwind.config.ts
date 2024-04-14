@@ -12,7 +12,7 @@ const config: Config = {
       colors:{
         primaryPink: '#FD9090',
         secondaryPink:"#F4DECB",
-        green2:'#C4EE7B',
+        green2:'#094f31',
         green:"#cdffcd",
         background:'#262626',
         brown:'#3a2317',
