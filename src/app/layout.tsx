@@ -1,20 +1,16 @@
 import type { Metadata } from "next";
-import { Ultra } from "next/font/google";
-import { Roboto } from "next/font/google";
+import clsx from "clsx";
 import "./globals.css";
 import { PrismicPreview } from '@prismicio/next'
 import { repositoryName } from '@/prismicio'
 import localFont from "next/font/local";
 import Header from "@/components/Header";
-export const ultra = Ultra({ subsets: ["latin"],
-  weight: '400',
- });
+import Footer from "@/components/Footer";
 
- export const myFont = localFont({src: './dream.ttf'})
 
-const roboto = Roboto({ subsets: ["latin"],
-      weight:'400'
- });
+export const myFont = localFont({src: './dream.ttf'})
+
+
 
 // export const metadata: Metadata = {
 //   title: "Create Next App",
@@ -29,11 +25,13 @@ export default function RootLayout({
   return (
     <html lang="en" className='bg-brown'>
       
-      <body>
-        <Header />  
-          {children}
-          <div className="h-[500vh]"></div>
-        
+      <body className={clsx("relative min-h-screen")}>
+        <Header />
+        {children}
+        <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
+        <div className="pointer-events-none absolute inset-0 -z-40 h-full bg-[url('/noisetexture.jpg')] opacity-20 mix-blend-soft-light"></div>
+        <Footer />
+        <PrismicPreview repositoryName={repositoryName} />
       </body>
 
       <PrismicPreview repositoryName={repositoryName} />

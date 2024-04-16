@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { ImageField } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
 import clsx from "clsx";
-//import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
+import usePrefersReducedMotion from "@/hooks/usePrefersReducedMotion";
 
 export default function Avatar({
   image,
@@ -15,7 +15,7 @@ export default function Avatar({
   className?: string;
 }) {
   const component = useRef(null);
-  //const prefersReducedMotion = usePrefersReducedMotion();
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -28,18 +28,17 @@ export default function Avatar({
         {
           scale: 1,
           opacity: 1,
-          //duration: prefersReducedMotion ? 0 : 1.3,
+          duration: prefersReducedMotion ? 0 : 1.3,
           ease: "power3.inOut",
         },
       );
 
       window.onmousemove = (e) => {
-        if (!component.current) return;
+        if (!component.current) return; // no component, no animation!
         const componentRect = (
           component.current as HTMLElement
         ).getBoundingClientRect();
         const componentCenterX = componentRect.left + componentRect.width / 2;
-
 
         let componentPercent = {
           x: (e.clientX - componentCenterX) / componentRect.width / 2,
@@ -70,23 +69,21 @@ export default function Avatar({
           );
       };
     }, component);
-    return () => ctx.revert(); 
-  }, []);
+    return () => ctx.revert(); // cleanup!
+  }, [prefersReducedMotion]);
 
   return (
     <div ref={component} className={clsx("relative h-full w-full", className)}>
       <div
-        className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-secondaryPink opacity-0"
+        className="avatar aspect-square overflow-hidden rounded-3xl border-2 border-primaryPink opacity-0"
         style={{ perspective: "500px", perspectiveOrigin: "150% 150%" }}
       >
         <PrismicNextImage
-          
           field={image}
           className="avatar-image h-full w-full object-fill"
           imgixParams={{ q: 90 }}
-      
         />
-        <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-primaryPink via-transparent to-yellow opacity-0 md:block"></div>
+        <div className="highlight absolute inset-0 hidden w-full scale-110 bg-gradient-to-tr from-transparent via-white to-transparent opacity-0 md:block"></div>
       </div>
     </div>
   );

@@ -61,7 +61,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
       ref={component}
     >
       <Bounded as="div">
-        <Heading size="xl" className="mb-8 text-green" as="h2">
+        <Heading size="xl" className="mb-8 text-yellow" as="h2">
           {slice.primary.heading}
         </Heading>
       </Bounded>
