@@ -27,11 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className='bg-brown text-white'>
+    <html lang="en" className='bg-brown'>
       
-      <body className={roboto.className}>
-      <Header />
-        
+      <body>
+      <Header />  
         {children}</body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>

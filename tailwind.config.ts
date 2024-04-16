@@ -10,9 +10,11 @@ const config: Config = {
   theme: {
     extend:{
       colors:{
-        primaryPink: '#FD9090',
+      
+        primaryPink: '#F35588',
         secondaryPink:"#F4DECB",
-        green2:'#094f31',
+        thirdPink:"#F35588",
+        yellow:'#FDD70B',
         green:"#cdffcd",
         background:'#262626',
         brown:'#3a2317',
@@ -25,7 +27,7 @@ const config: Config = {
   variants:{
     extend:{}
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 export default config;
 

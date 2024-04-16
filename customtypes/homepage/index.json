@@ -11,6 +11,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "tech": {
+              "type": "SharedSlice"
+            },
             "hero": {
               "type": "SharedSlice"
             }

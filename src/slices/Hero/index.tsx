@@ -98,7 +98,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
        <div className="col-start-1 md:row-start-1">
           <h1 
             className={`${myFont.className} mb-8 text-[clamp(3rem,20vmin,10rem)] 
-            font-exrabold leading-none tracking-lighter`}
+            leading-none tracking-lighter`}
             aria-label={
               slice.primary.first_name + " " + slice.primary.last_name
             }
@@ -110,11 +110,11 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
               {renderLetters(slice.primary.last_name, "last")}
             </span>
           </h1>
-        <span className={`${myFont.className} job-title block bg-green
+        <span className={`${myFont.className} job-title block bg-yellow
             bg-clip-text text-2xl
             font-bold uppercase
             tracking-[.2em] text-transparent
-            md:text-6xl
+            md:text-4xl
         `}
         >
          {slice.primary.tag_line}
