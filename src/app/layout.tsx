@@ -30,8 +30,12 @@ export default function RootLayout({
     <html lang="en" className='bg-brown'>
       
       <body>
-      <Header />  
-        {children}</body>
+        <Header />  
+          {children}
+          <div className="h-[500vh]"></div>
+        
+      </body>
+
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );

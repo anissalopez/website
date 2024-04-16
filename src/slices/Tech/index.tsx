@@ -9,17 +9,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Bounded from "@/components/Bounded";
 import Heading from "@/components/Heading";
+import { myFont } from "@/app/layout";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Props for `TechList`.
- */
-export type TechListProps = SliceComponentProps<Content.TechListSlice>;
 
-/**
- * Component for "TechList" Slices.
- */
+export type TechListProps = SliceComponentProps<Content.TechSlice>;
+
 const TechList = ({ slice }: TechListProps): JSX.Element => {
   const component = useRef(null);
 
@@ -34,14 +30,13 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
           scrub: 4,
         },
       });
-
       tl.fromTo(
         ".tech-row",
         {
           x: (index) => {
             return index % 2 === 0
-              ? gsap.utils.random(600, 400)
-              : gsap.utils.random(-600, -400);
+              ? gsap.utils.random(400, 600)
+              : gsap.utils.random(-400, -600);
           },
         },
         {
@@ -52,7 +47,8 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
           },
           ease: "power1.inOut",
         },
-      );
+      )
+      
     }, component);
     return () => ctx.revert(); // cleanup!
   }, []);
@@ -65,7 +61,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
       ref={component}
     >
       <Bounded as="div">
-        <Heading size="lg" className="mb-8 text-yellow" as="h2">
+        <Heading size="xl" className="mb-8 text-green" as="h2">
           {slice.primary.heading}
         </Heading>
       </Bounded>
@@ -73,14 +69,14 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
       {slice.items.map(({ tech_color, tech_name }, index) => (
         <div
           key={index}
-          className="tech-row mb-8 flex items-center justify-center gap-4 text-neutral-200"
+          className={`${myFont.className} tech-row mb-8 flex items-center justify-center gap-4 text-secondaryPink/80`}
           aria-label={tech_name || ""}
         >
           {Array.from({ length: 15 }, (_, index) => (
             <React.Fragment key={index}>
               <span
                 className={
-                  "tech-item text-8xl font-extrabold uppercase tracking-tighter"
+                  "tech-item text-6xl  uppercase "
                 }
                 style={{
                   color: index === 7 && tech_color ? tech_color : "inherit",

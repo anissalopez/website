@@ -50,20 +50,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             scale: 1,
             ease: "elastic.out(1,0.3)",
           },
-          // {
-          //   y: -500,
-          //   opacity: 0,
-          //   scale: 1.5,
-          //   x:500
-          // },
-          // {
-          //   opacity: 1,
-          //   y: 0,
-          //   x:0,
-          //   duration: 2,
-          //   scale: 1,
-          //   ease:"back.out(2)"
-          // },
+         
         );
     }, component);
     return () => ctx.revert(); // cleanup!
@@ -111,10 +98,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
             </span>
           </h1>
         <span className={`${myFont.className} job-title block bg-yellow
-            bg-clip-text text-2xl
+            bg-clip-text text-4xl
             font-bold uppercase
             tracking-[.2em] text-transparent
-            md:text-4xl
+            md:text-6xl
         `}
         >
          {slice.primary.tag_line}

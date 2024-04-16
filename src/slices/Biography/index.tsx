@@ -88,7 +88,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       ref={component}
     >
       <div className="title grid gap-x-8 gap-y-6 md:grid-cols-[2fr,1fr]">
-        <Heading size="lg" className="col-start-1">
+        <Heading size="lg" className="col-start-1 text-yellow">
           {slice.primary.title}
         </Heading>
 
@@ -98,13 +98,14 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
 
        
         <Button
+          className="body"
           linkField={slice.primary.button_link}
           label={slice.primary.button_text}
         />
 
         <Avatar
           image={slice.primary.avatar}
-          className="row-start-1 max-w-sm md:col-start-2 md:row-end-3"
+          className="title row-start-1 max-w-sm md:col-start-2 md:row-end-3"
         />
       </div>
     </Bounded>
