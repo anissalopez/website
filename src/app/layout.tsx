@@ -2,27 +2,20 @@ import type { Metadata } from "next";
 import clsx from "clsx";
 import "./globals.css";
 import { PrismicPreview } from '@prismicio/next'
+import { repositoryName } from '@/prismicio'
 import localFont from "next/font/local";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { createClient, repositoryName } from "@/prismicio";
 
 
 export const myFont = localFont({src: './dream.ttf'})
 
 
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const settings = await client.getSingle("settings");
 
-  return {
-    title: settings.data.meta_title,
-    description: settings.data.meta_description,
-    // openGraph: {
-    //   images: [settings.data.og_image?.url || ""],
-    // },
-  };
-}
+export const metadata: Metadata = {
+  title: "Anissa Lopez Personal Website",
+  description: "Anissa Lopez personal website",
+};
 
 export default function RootLayout({
   children,
