@@ -11,18 +11,18 @@ import Header from "@/components/Header";
 
 export const myFont = localFont({src: './dream.ttf'})
 
-export async function generateMetadata(): Promise<Metadata> {
-  const client = createClient();
-  const settings = await client.getSingle("settings");
+// export async function generateMetadata(): Promise<Metadata> {
+//   const client = createClient();
+//   const settings = await client.getSingle("settings");
 
-  return {
-    title: settings.data.meta_title,
-    description: settings.data.meta_description,
-    // openGraph: {
-    //   images: [settings.data.og_image?.url || ""],
-    // },
-  };
-}
+//   return {
+//     title: settings.data.meta_title,
+//     description: settings.data.meta_description,
+//     // openGraph: {
+//     //   images: [settings.data.og_image?.url || ""],
+//     // },
+//   };
+// }
 
 export default function RootLayout({
   children,
