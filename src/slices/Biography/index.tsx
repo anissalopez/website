@@ -142,7 +142,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
           {slice.primary.title}
         </Heading>
 
-        <div className="prose text-2xl text-neutral-50 col-start-1">
+        <div className="prose text-2xl text-secondaryPink col-start-1">
           <PrismicRichText field={slice.primary.body} />
         </div>
         <Button

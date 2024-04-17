@@ -26,7 +26,7 @@ export default async function Footer() {
           >
             /
           </span>
-          <p className=" text-sm text-slate-100 ">
+          <p className=" text-sm text-secondaryPink">
             © {new Date().getFullYear()} {settings.data.name}
           </p>
         </div>
@@ -37,7 +37,7 @@ export default async function Footer() {
                 <li>
                   <PrismicNextLink
                     className={clsx(
-                      "group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold text-slate-100 transition-colors duration-150 hover:hover:text-yellow-400",
+                      "group relative block overflow-hidden  rounded px-3 py-1 text-base font-bold text-secondaryPink transition-colors duration-150 hover:hover:text-yellow",
                     )}
                     field={link}
                   >
@@ -60,7 +60,7 @@ export default async function Footer() {
           {isFilled.link(settings.data.github) && (
             <PrismicNextLink
               field={settings.data.github}
-              className="p-2 text-2xl text-primaryPink transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-primaryPink transition-all duration-150 hover:scale-125 hover:text-yellow"
               aria-label={settings.data.name + " on GitHub"}
             >
               <FaGithub />
@@ -69,7 +69,7 @@ export default async function Footer() {
           {isFilled.link(settings.data.medium) && (
             <PrismicNextLink
               field={settings.data.medium}
-              className="p-2 text-2xl text-primaryPink transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-primaryPink transition-all duration-150 hover:scale-125 hover:text-yellow"
               aria-label={settings.data.name + " on Medium"}
             >
               <FaMedium />
@@ -78,7 +78,7 @@ export default async function Footer() {
           {isFilled.link(settings.data.linkedin) && (
             <PrismicNextLink
               field={settings.data.linkedin}
-              className="p-2 text-2xl text-primaryPink transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+              className="p-2 text-2xl text-primaryPink transition-all duration-150 hover:scale-125 hover:text-yellow"
               aria-label={settings.data.name + " on LinkedIn"}
             >
               <FaLinkedin />

@@ -1,0 +1,58 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "hang",
+				"type": "Text"
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"title",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "try",
+							"type": "Text"
+						}
+					],
+					[
+						"time_period",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "think",
+							"type": "Text"
+						}
+					],
+					[
+						"instituition",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "perfectly",
+							"type": "Text"
+						}
+					],
+					[
+						"description",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Cupidatat cillum cillum tempor proident ex nostrud commodo voluptate officia sint proident quis pariatur nulla. Enim ad consequat quis eiusmod consectetur culpa culpa laboris esse do sint est enim."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
