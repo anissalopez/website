@@ -1,30 +1,36 @@
-import type { Metadata } from "next";
-import clsx from "clsx";
 import "./globals.css";
-import { PrismicPreview } from '@prismicio/next'
-import { repositoryName } from '@/prismicio'
-import localFont from "next/font/local";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import clsx from "clsx";
+import type { Metadata } from "next";
 
+import { PrismicPreview } from "@prismicio/next";
+import { createClient, repositoryName } from "@/prismicio";
+import localFont from "next/font/local";
+
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export const myFont = localFont({src: './dream.ttf'})
 
+export async function generateMetadata(): Promise<Metadata> {
+  const client = createClient();
+  const settings = await client.getSingle("settings");
 
-
-export const metadata: Metadata = {
-  title: "Anissa Lopez Personal Website",
-  description: "Anissa Lopez personal website",
-};
+  return {
+    title: settings.data.meta_title,
+    description: settings.data.meta_description,
+    // openGraph: {
+    //   images: [settings.data.og_image?.url || ""],
+    // },
+  };
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className='bg-brown'>
-      
+    <html lang="en" className="bg-brown">
       <body className={clsx("relative min-h-screen")}>
         <Header />
         {children}
@@ -33,8 +39,6 @@ export default function RootLayout({
         <Footer />
         <PrismicPreview repositoryName={repositoryName} />
       </body>
-
-      <PrismicPreview repositoryName={repositoryName} />
     </html>
   );
 }
