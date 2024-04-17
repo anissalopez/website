@@ -24,7 +24,7 @@ export default function ContentList({
   viewMoreText = "Read More",
 }: ContentListProps) {
   const component = useRef(null);
-  const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
+  const itemsRef = useRef<Array<HTMLLIElement | null >>([]);
 
   const revealRef = useRef(null);
   const [currentItem, setCurrentItem] = useState<null | number>(null);
@@ -133,6 +133,14 @@ export default function ContentList({
     });
   }, [contentImages]);
 
+  const setListItemRef = (index: number) => (el: HTMLLIElement | null) => {
+    if (!itemsRef.current) {
+      itemsRef.current = [];
+    }
+    itemsRef.current[index] = el;
+  };
+  
+
   return (
     <>
       <ul
@@ -143,7 +151,7 @@ export default function ContentList({
         {items.map((post, index) => (
           <li
             key={index}
-            ref={(el) => (itemsRef.current[index] = el)}
+            ref={setListItemRef(index)}
             onMouseEnter={() => onMouseEnter(index)}
             className="list-item opacity-0"
           >
@@ -182,3 +190,4 @@ export default function ContentList({
     </>
   );
 }
+
